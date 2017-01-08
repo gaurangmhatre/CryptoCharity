@@ -1,0 +1,48 @@
+#ledgerPanel(hidden).panel
+	h1 Charity Cart Ledger
+	//img(src="/imgs/money.png", class="movie-poster" style="float:right")
+	hr
+	
+	br
+	#tradeModal.modalDialog
+			div
+				.modal-header
+					h2 Filter Trades
+					hr
+				.modal-content
+					form#tradeFilter
+						label(for="trade_issuer") ISSUER
+						input#trade_issuer.trade-filter(type="text" name="issuer")
+						br
+						label(for="trade_owner") OWNER
+						input#trade_owner.trade-filter(type="text" name="owner")
+						br
+						label(for="trade_ticker") TICKER
+						input#trade_ticker.trade-filter(type="text" name="ticker")
+						br
+						a.filter-button(href="#close" title="Close") Close
+						
+	#openTrades
+		br
+		p
+			span(style="font-weight:bold;") Account Balance:
+			span#accountBalance Loading from blockchain...
+		br
+		a.filter-button(href="#tradeModal" hidden) Filter Trades
+		br
+		br
+		table#tradesTable.tablesorter
+			thead
+				tr 
+					TH: a.sort-selector(sort="date") DATE
+						span.fa.fa-arrow-up.sort-indicator
+					th: a.sort-selector(sort="cusip") ID
+					th: a.sort-selector(sort="ticker") REASON
+					th: a.sort-selector(sort="par") AMOUNT
+					//th: a.sort-selector(sort="quantity") QTY
+					//th: a.sort-selector(sort="discount") DISCOUNT
+					//th: a.sort-selector(sort="maturity") MATURITY
+					th: a.sort-selector(sort="issuer") ACCEPTOR
+					th: a.sort-selector(sort="owner") OWNER
+					th ACTION
+			tbody#tradesBody

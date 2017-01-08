@@ -1,0 +1,43 @@
+{
+  "name": "cp-web",
+  "version": "0.0.1",
+  "description": "An example commercial paper trading application built on a blockchain.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "async": "^2.1.2",
+    "body-parser": "^1.15.2",
+    "cf-deployment-tracker-client": "^0.1.1",
+    "compression": "^1.6.2",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "express-session": "^1.14.2",
+    "hfc": "0.6.5",
+    "morgan": "^1.7.0",
+    "pug": "^2.0.0-beta6",
+    "serve-static": "^1.11.1",
+    "ws": "^1.1.1"
+  },
+  "engines": {
+    "node": "^6.9.1",
+    "npm": "^3.10.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IBM-Blockchain/cp-web.git"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.13",
+    "gulp-concat": "^2.6.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.0.4",
+    "gulp-sourcemaps": "^2.2.0",
+    "gulp-util": "^3.0.6",
+    "gulp-watch": "^4.3.4"
+  },
+  "license": "Apache-2.0"
+}

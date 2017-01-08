@@ -1,0 +1,70 @@
+@import 'color_theme';
+
+.modalDialog {
+  //position: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+ // top: 0;
+ // left: 0;
+  z-index: 99999;
+  opacity: 0;
+  height: 100px;
+  width: 100%;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: -78px;
+  text-align: center;
+}
+
+.modalDialog:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modalDialog > div {
+  width: 300px;
+  position: relative;
+  padding: 5px 20px 13px 20px;
+  border-radius: 10px;
+  border: 2px solid $acc_color1;
+  background: $main_bg;
+  margin:auto;
+  margin-top: 10px;
+}
+
+.modalDialog label {
+  width: 60px;
+  display:inline-block;
+}
+
+#tradeFilter, #auditFilter {
+  //text-align: right;
+}
+
+.filter-button {
+  font-size: 11px;
+  cursor: pointer;
+  padding: 5px 10px;
+  background: #6CC284 none repeat scroll 0% 0%;
+  color: #222832;
+  border: 0px none;
+  transition: background-color 0.2s ease 0s;
+  border-radius: 30px;
+  min-width: 130px;
+  box-shadow: -1px 4px 2px -2px rgba(0, 0, 0, 0.75);
+  text-decoration: none;
+}
+
+.filter-button:visited {
+  text-decoration: none;
+  color: #222832;
+}
+
+#ledgerPanel, #audiPanel{
+	width:100%;
+}
+
+

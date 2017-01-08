@@ -1,0 +1,37 @@
+Research Work :
+
+1> About Blockchain :
+    Blockchain is the technology for creating decentralised applications. 
+2> About Ethereum :
+    Ethereum is the platform for Blockchain. Ether is the Digital currency used for Ethereum.
+    Get free Ether from : https://zerogox.com/ethereum/wei_faucet
+3> Smart - Contracts:
+    Smart Contracts are operations that are to be executed on Ethereum to perform some transactions. 
+    Smart contracts have the logic written for executing operations.
+4> Current Development Options available:
+
+    Solidicty is used as one of the ways to implement smart Contracts in Ethereum.
+    Meteor is a javascript frameworkd used to create user interface to interact with Ethereum.
+    Truffle is another which is used to linking , deploying , creating smart contracts.
+    Geth client with Go language.
+    Embark framework.
+    web3 as a middleware for interacting with Ethereum platform
+
+    - Embark : Requirements : geth ethereum client , node js and npm , Solidicty (solc)
+                for Dapp js front end developement
+
+    - Truffle : Requirements : metamask , truffle
+
+    - Mist : Its a broswer for running ethereum applications. It also supports ethereum wallets and contracts. It has inbuild geth and web3.js.
+
+    - Ethereum clients : 1> geth for go ethereum 2> cpp-Ethereum for c++ 3> pyethereum for python
+
+    - Meteor : GETH client , WEB3 tointact with ethereum blockchain
+
+5> IBM Bluemix : IBM Bluemix Blockchain service provided a platform to develop blockchain applications.
+Chaincode is the code used as a smart contract to interact with blockchain - hyperledger in terms of Bluemix
+Chaincode is a golang code.
+
+
+
+

@@ -1,0 +1,9 @@
+version 1: basic UI design
+
+version 2 : added roles as donor , acceptor , charitymonitor with trasnfer between acceptor and donor
+
+version 3: added money transfer - addition and dedcution of money from donor and acceptor.
+            modified chaincode for having 0 balance for acceptor account
+
+
+version 4:  chanigng UI - TRADE to LEDGER , increate hint font size and change color

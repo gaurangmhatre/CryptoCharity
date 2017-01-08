@@ -1,0 +1,130 @@
+////////////////////////////////////////////////// Functions //////////////////////////////////////////////////
+//Print Object Out Formatted
+mixin debug(variable)
+	br
+	br
+	pre #{JSON.stringify(variable, null, "\t")}
+
+////////////////////////////////////////////////// HTML //////////////////////////////////////////////////
+//Begin HTML
+doctype html
+html
+	//Built by: Me
+	//ETI Labs
+	//Copyright 2016  - IBM
+	head
+		title CCC
+		meta(name="viewport" content="initial-scale=1.0, user-scalable=no")
+		link(rel="icon", type="image/png", href="/imgs/favicon.ico")
+		link(rel="stylesheet" href="/css/font-awesome-4.5.0/css/font-awesome.min.css")
+		link(type="text/css" rel="stylesheet" href="/css/main.css")
+		//boostrap links
+		//link(rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css")
+		//link(rel="stylesheet" type="text/css" href="vendor/font-awesome/css/font-awesome.min.css")
+		//link(href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css")
+		//link(href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css")
+		//link(link href="css/grayscale.css" rel="stylesheet")
+		//link(type="text/css" rel="stylesheet" href="/css/blue/style.css")
+
+
+		script(src='/js/util/jquery-1.11.1.min.js')
+		//script(src='/js/util/jquery-ui-1.11.4/jquery-ui.min.js')
+		script(src='/js/util/jquery.ui.touch-punch.min.js')
+		script(src='/js/util/jquery.tablesorter.min.js')
+		script(src='/js/funk.js')
+		script(src='/js/tables.js')
+		script(src='/js/sorts.js')
+		script(src='/js/blockchain.js')
+		script(type='text/javascript').
+			var bag = !{JSON.stringify(bag)};						//throw jade json over to JS
+			console.log('bag', bag);
+			$(document).ready(function(){
+				if(bag.e && bag.e.msg) {
+					$("#errorName").html("Start Up Error");
+					$("#errorNoticeText").html(JSON.stringify(bag.e.msg, null, 4));
+					$("#errorNotificationPanel").show();							//show the error/warning
+				}
+				
+				//Tab Navigation, show the corresponding panel
+				$(".nav").click(function(){
+					var show = $(this).html().trim().toLowerCase();
+					showPanel(show);
+				});
+				function showPanel(show){
+					console.log('show', show);
+					if(show == '') show = 'ledger';									//default
+					window.history.pushState({},'', show);					//put it in url so we can f5
+
+					$(".panel").hide();
+					if($("#" + show + "Panel").length == 0){
+						//$("#error404").fadeIn();
+					}
+					else{
+						$("#" + show + "Panel").fadeIn(300);
+						$(".selectedNav").removeClass("selectedNav");
+						$(this).addClass("selectedNav");
+					}
+				}
+				
+				//Blockchain panel toggle
+				$("#viewBCWrap").click(function(){
+					if($("#footerWrap").is(":visible")){
+						$("#footerWrap").slideUp();
+					}
+					else{
+						$("#footerWrap").slideDown();
+					}
+				});
+				
+				//Notification panel
+				$("#closeNotification").click(function(){
+					//$("#notificationPanel").animate({right:'-=450'}, 500, function(){
+					//	$(this).hide();
+					//});
+					$("#notificationPanel").animate({width:'toggle'});
+				});
+				
+				$(".backToHome").click(function(){
+					$(".panel").hide();
+					$("#homePanel").show();
+					$("#notificationPanel").animate({width:'toggle'});
+				});
+				
+				//Page refresh show correct panel
+				var pos = window.location.pathname.indexOf('/');			//skipping first char find first slash
+				if(pos >= 0){
+					showPanel(window.location.pathname.substring(pos + 1).toLowerCase());
+				}
+				
+				$(".colorInput").click(function(){	//do not remove! no idea why but this helps safari open the color picker
+					console.log('...');
+				});
+			});
+		block custom_header
+		
+		body
+			#navPanel
+				block navpanel
+			
+			
+			#mainPanel
+				#error404(hidden).panel 
+					br
+					center
+						p Error 404
+				
+				block content
+				
+				#notificationPanel
+					span.fa.fa-check#noticeIcon
+					#noticeText CHARITY CART CLAIMED. DONATION SUBMITTED!
+					button(type="button")#closeNotification OK
+				
+				#errorNotificationPanel
+					span.fa.fa-minus-circle#errorNoticeIcon
+					h2#errorName Error
+					#errorNoticeText &nbsp;
+					p.hint This application cannot run without the blockchain network :(
+				
+			#footerPanel
+				block footer

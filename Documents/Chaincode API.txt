@@ -1,0 +1,73 @@
+
+Registrar::
+
+{
+  "enrollId": "user_type1_0",
+  "enrollSecret": "6936a0bd7c"
+}
+
+
+Deploy ::
+
+{
+  "jsonrpc": "2.0",
+  "method": "deploy",
+  "params": {
+    "type": 1,
+    "chaincodeID": {
+      "path": "https://github.com/amdh/learn-chaincode/start"
+    },
+    "ctorMsg": {
+      "function": "init",
+      "args": [
+        "initial_amount"
+      ]
+    },
+    "secureContext": "user_type1_0"
+  },
+  "id": 0
+}
+
+Query::
+{
+  "jsonrpc": "2.0",
+  "method": "query",
+  "params": {
+    "type": 1,
+    "chaincodeID": {
+      "name": "bf51a0c1bf5ff2d48ea591b0763202f119cddea4e4ab89708db4524b917b7b1142e5c89288439459d285955cc1d5290b56125d4da53d9c424c1de8f21f02d027"
+    },
+    "ctorMsg": {
+      "function": "isValid",
+      "args": [
+        "100", "100"
+      ]
+    },
+    "secureContext": "user_type1_0"
+  },
+  "id": 0
+}
+
+
+Invoke::
+
+{
+  "jsonrpc": "2.0",
+  "method": "invoke",
+  "params": {
+    "type": 1,
+    "chaincodeID": {
+      "name": "bf51a0c1bf5ff2d48ea591b0763202f119cddea4e4ab89708db4524b917b7b1142e5c89288439459d285955cc1d5290b56125d4da53d9c424c1de8f21f02d027"
+    },
+    "ctorMsg": {
+      "function": "fund_charity",
+      "args": [
+        "fund_amount", "100"
+      ]
+    },
+    "secureContext": "user_type1_0"
+  },
+  "id": 0
+}
+
+

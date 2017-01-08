@@ -1,0 +1,103 @@
+extends template/layout
+	
+	
+//- --------------- Header -------------- //
+block custom_header
+	script(src='/js/part2.js')
+	script(src='/js/blockchain.js')
+	script(type='text/javascript').
+		$(document).ready(function(){
+			
+		});
+		
+		
+//- --------------- Navigation Bar  -------------- //
+block navpanel
+	include template/nav_part2
+	
+	
+//- --------------- Main Stuff  -------------- //
+block content
+	div#imgBackgroundContainer
+	#contentPanel
+		#ourMission.content-section
+			h1 Our Mission
+			div.missiondiv1
+				//div.missionimgdiv
+				img(src="/imgs/mission.jpg", class="movie-poster", style="float:left; padding-right: 10px")
+				//div.missiondiv2
+				p Make a difference by making someone smile today!
+				p We provide helping hand to those who need it!
+				p Our charity application provides financial and humanitarian assistance.
+				p Idea is designed to help every person in the world and to push society forward.
+				p Donate with having transparency in transaction.				
+				p Application leverages the Blockchain Technology to help build trusless distributed application.
+			br
+			br
+
+		#loginContainer
+			h2 Enroll
+			img(src="/imgs/login.png", class="movie-poster")
+			hr
+
+			form(method="POST" action="#" style="text-align: center;")
+				p.hint
+					| !{bag.session.error_msg}
+					br
+					br
+				p
+					.hint Role
+					select#select_role(name="charity_role")
+						option Donor
+						option Acceptor
+						option CharityMonitor
+				p
+					//.hint Role					
+					input(type="text" placeholder="role" name="roleText" value="Donor" readonly hidden)
+				p
+					.hint Enroll ID
+					input(type="radio" name="username" hidden)
+					input(type="text" placeholder="enrollID" name="username" required)
+				p
+					.hint Secret
+					input(type="password" name="password" required)
+				button(type="submit")#loginButton Enroll/Login
+		
+		#registerContainer
+			h2 Register
+			img(src="/imgs/register.png", class="movie-poster")
+			hr
+
+			form(method="POST" action="#" style="text-align: center;")
+				p.info
+					| !{bag.session.reg_error_msg}
+					| !{bag.session.registration}
+					br
+					br
+				p
+					.hint Desired Enroll ID
+					input#register_username(type="text" placeholder="enrollID" name="username" required)
+
+				
+
+				button(type="submit")#registerButton Register
+
+		
+		br
+		br
+		#contactUS(class ="content-section")
+			h2 Contact US
+			p Feel free to email us to provide some feedback , give us suggestions , or to just say hello!
+			p
+				a(href="mailto:feedback@team24.com") feedback@team24.com
+			br
+			br
+			p
+				Copyright &copy; Your Website 2016
+
+
+	
+		
+				
+
+
